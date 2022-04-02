@@ -31,7 +31,6 @@ contract ColumbusRelayer {
 
     function depositFRA(bytes calldata data) external onlyGeneric {
         (bytes32 to, uint256 amount) = abi.decode(data, (bytes32, uint256));
-
         Address.functionCallWithValue(bridge, abi.encodeWithSignature("depositFRA(bytes32)", to), amount);
     }
 
